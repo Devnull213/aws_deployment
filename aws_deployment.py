@@ -13,16 +13,16 @@ def repo_config(repo_name, repo_url):
     subprocess.run(['sudo', 'apt', 'install', 'python3-venv'])
     os.chdir(repo_name)
     subprocess.run(['python3', '-m', 'venv', 'venv'])
-    subprocess.run(['source', 'venv/bin/activate'])
+    # subprocess.run(['source', 'venv/bin/activate'])
 
     #////install framework, and specific use programs////
 
+
+def project_settings_mods(project_name, server_ip):
     subprocess.run(['pip', 'install', 'django==2.2.4'])
     subprocess.run(['pip', 'install', 'bcrypt'])
     subprocess.run(['pip', 'install', 'gunicorn'])
 
-
-def project_settings_mods(project_name, server_ip):
     ip_for_settings_mods = 'ALLOWED_HOSTS = [\'' + str(server_ip) +'\']'
 
     os.chdir(project_name)
@@ -52,8 +52,8 @@ if __name__ == "__main__":
 
     repo_config(repo_name, repo_url)
 
-    project_name = input('Enter the name of the project (NOT THE REPO):')
-    server_ip = input('Enter the server ip address: ')
+    # project_name = input('Enter the name of the project (NOT THE REPO):')
+    # server_ip = input('Enter the server ip address: ')
 
-    project_settings_mods(project_name, server_ip)
+    # project_settings_mods(project_name, server_ip)
 
